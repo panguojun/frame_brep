@@ -1,0 +1,27 @@
+{
+  "name": "analytic-surface-studio",
+  "productName": "解析曲面标架工作台",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test-geometry.mjs",
+    "pack": "electron-builder --win dir",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "33.4.11",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "lab.panguojun.analyticsurfacestudio",
+    "productName": "解析曲面标架工作台",
+    "npmRebuild": false,
+    "files": ["main.cjs", "preload.cjs", "index.html", "style.css", "app.js", "geometry.js", "vendor/**/*"],
+    "directories": {"output": "dist"},
+    "win": {"target": "nsis", "signAndEditExecutable": false},
+    "nsis": {"oneClick": false, "perMachine": false, "allowToChangeInstallationDirectory": true}
+  }
+}
